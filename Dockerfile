@@ -1,4 +1,10 @@
-FROM ubuntu:18.04
+FROM node:18-slim
+
+# Enables pnpm
+RUN corepack enable
+
+# Installs the zuplo packages
+RUN npm install -g @zuplo/cli
 
 RUN apt-get -y update && apt-get install -y \
     autoconf \
